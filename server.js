@@ -4,7 +4,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
 
 // Middleware
 app.use(cors());
@@ -29,8 +32,8 @@ let confessions = [
     {
         id: 1,
         text: "I love this confession wall idea!",
-        author: "Martin",
-        likes: 5,
+        author: "Maartin",
+        likes: 65,
         liked: false,
         timestamp: new Date()
     }
@@ -110,7 +113,7 @@ app.listen(PORT, () => {
     ║      🎭 CONFESSION WALL SERVER 🎭      ║
     ║                                        ║
     ║   Server running on:                   ║
-    ║   http://localhost:${PORT}                 ║
+    ║   "https://confession-wall.onrender.com/api/confession"               
     ║                                        ║
     ║   Open it in your browser!             ║
     ╚════════════════════════════════════════╝
